@@ -1,7 +1,7 @@
 ---
-title: 'Code Blocks'
-description: 'Display inline code and code blocks'
-icon: 'code'
+title: "Code Blocks"
+description: "Display inline code and code blocks"
+icon: "code"
 ---
 
 ## Basic
@@ -17,6 +17,28 @@ To denote a `word` or `phrase` as code, enclose it in backticks (`).
 ### Code Block
 
 Use [fenced code blocks](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks) by enclosing code in three backticks and follow the leading ticks with the programming language of your snippet to get syntax highlighting. Optionally, you can also write the name of your code after the programming language.
+
+```ts server.ts
+import { Sendforsign } from 'sendforsign';
+
+const NDAContractContent = render(<Contract url="https://example.com" />);
+const sendforsign = new Sendforsign('sfs_123456789');
+
+(async function () {
+  try {
+    const data = await sendforsign.contract.send({
+        from: 'Acme <onboarding@acme.com>',
+        to: ['clien@mail.com'],
+        subject: 'Non-disclosure agreement',
+        html: NDAContractContent,
+    });
+
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+})();
+```
 
 ```java HelloWorld.java
 class HelloWorld {
